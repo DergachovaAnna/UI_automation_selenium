@@ -6,7 +6,7 @@ from utils.settings import DRIVER_PATH, IMPLICITLY_WAIT
 
 class Test(unittest.TestCase):
 
-    @classmethod
+    @classmethod 
     def setUp(self):
         os.chmod(DRIVER_PATH, 755)
         self.driver = webdriver.Chrome(executable_path=DRIVER_PATH)
