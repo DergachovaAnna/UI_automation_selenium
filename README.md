@@ -40,7 +40,7 @@ Password:
 
 ### Language selert dropdown: 
  - /html/body/div/form/div/div[2]/div/div
- - //*[starts-with(@class, "MuiSelect-root")]
+ - //*[starts-with(@class, 'MuiSelect-root')]
  - //div[contains(@aria-haspopup, 'listbox')]
  - English: //input[@value='en']
  - Polish: //input[@value='pl']
