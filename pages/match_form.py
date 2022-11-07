@@ -10,7 +10,7 @@ class matchForm(BasePage):
     language_menu_xpath = "//ul[3]/div[1]/span",
     sign_out_menu_xpath = "//ul[3]/div[1]/span",
     page_title_xpath = "//div[contains(@class, 'MuiCardHeader-content')]",
-    add_language_button_xpath = "//main//div[15]/button",
+    add_language_button_xpath = "//*[@id='__next']//div[15]//span[text()='Dodaj język' or text()='Add language']",
     add_link_button_xpath = "//main//div[19]/button",
     submit_button_xpath = "//*[@id='__next']//button[@type='submit']",
     clear_button_xpath = "//*[@id='__next']//form/div[3]/button[2]",
@@ -28,13 +28,12 @@ class matchForm(BasePage):
     second_position_input_xpath = "//input[@name='secondPosition']",
     district_select_xpath = "//*[@id='district']",
     achievements_input_xpath = "//input[@name='achievements']",
-    language_input_xpath = "//input[contains(@name='languages')]",
-    remove_language_xpath = "",
-    youtube_input_xpath = "",
-    remove_youtube_xpath = "",
-    ball_input_xpath = "",
-    minut_90_input_xpath = "",
-    facebook_input_xpath = "",
+    language_input_xpath = "//*[@id='__next']//input[contains(@name, 'languages')]]",
+    remove_language_xpath = "//*[@id='__next']//div[15]//button[@title='Remove Language' or @title='Usuń język']",
+    youtube_input_xpath = "//input[contains(@name, 'webYT')]",
+    remove_youtube_xpath = "//*[@id='__next']//div[19]//button[contains(@title, 'Youtube')]",
+    minut_90_input_xpath = "//*[@id='__next']//div[17]//input[@name='web90']",
+    facebook_input_xpath = "//*[@id='__next']//div[18]//input[@name='webFB']",
 
 
 
