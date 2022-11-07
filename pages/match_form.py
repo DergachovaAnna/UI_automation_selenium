@@ -2,8 +2,8 @@ from pages.base_page import BasePage
 
 
 class matchForm(BasePage):
-    main_page_menu_xpath = "//ul[1]/div[1]/span",
-    players_menu_xpath = "//ul[1]/div[2]/span",
+    main_page_menu_xpath = "//span[text()='Main page' or  text()='Strona główna']//ancestor::div[@role='button']",
+    players_menu_xpath = "//span[text()='Players' or text()='Gracze']//ancestor::div[@role='button']",
     player_menu_xpath = "//ul[2]/div[1]/span",
     matches_menu_xpath = "//ul[2]/div[2]/span",
     reports_menu_xpath = "//ul[2]/div[3]/span",
