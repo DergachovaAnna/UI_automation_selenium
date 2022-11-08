@@ -4,7 +4,7 @@ from pages.base_page import BasePage
 class LoginPage(BasePage):
      login_field_xpath = "//*[@id='login']"
      password_field_xpath = "//*[@id='password']"
-     sign_in_button_xpath = "//button/span[2]"
+     sign_in_button_xpath = "//*[text()='Sign in' or text()='Zaloguj']"
      header_text_xpath = "//*[text()='Scouts Panel']"
      login_label_xpath = "//*[@id='login-label']"
      password_label_xpath = "//*[@id='password-label']"
