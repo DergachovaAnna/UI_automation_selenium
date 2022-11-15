@@ -34,7 +34,7 @@ class TestAddPlayer(unittest.TestCase):
         user_login.click_button()
         time.sleep(5)
         dashboard_page = Dashboard(self.driver)
-        dashboard_page.click_button()
+        dashboard_page.click_button_add_player()
         time.sleep(3)
         add_player = AddPlayer(self.driver)
         add_player.type_in_email("anna_QA123@gmail.com")
@@ -54,4 +54,20 @@ class TestAddPlayer(unittest.TestCase):
         add_player.click_button_submit()
         time.sleep(6)
 
+
+    def test_title_add_player(self):
+        user_login = LoginPage(self.driver)
+        user_login.type_in_email("user01@getnada.com")
+        user_login.type_in_password("Test-1234")
+        user_login.click_button()
+        time.sleep(5)
+        dashboard_page = Dashboard(self.driver)
+        dashboard_page.click_button_add_player()
+        time.sleep(2)
+        actual_title = self.get_page_title('https://scouts-test.futbolkolektyw.pl/en/players/add')
+        expected_title = 'Add player'
+        assert actual_title == expected_title
+
+    def get_page_title(self, url):
+        return self.driver.title
 
