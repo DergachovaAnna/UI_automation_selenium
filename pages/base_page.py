@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
 from selenium.webdriver.remote.webdriver import WebDriver
 
 
@@ -16,3 +17,7 @@ class BasePage():
     def get_page_title(self, url):
         self.driver.get(url)
         return self.driver.title
+
+    def select_element(self, selector, selector_type=By.XPATH):
+        select = Select(self.driver.find_element(selector_type, selector))
+        return select
