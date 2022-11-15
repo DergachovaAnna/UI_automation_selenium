@@ -3,22 +3,22 @@ import time
 
 
 class AddPlayer(BasePage):
-    email_input_xpath = "//*[@name='email']",
-    name_input_xpath = "//*[@name='name']",
-    surname_input_xpath = "//*[@name='surname']",
-    phone_input_xpath = "//*[@name='phone']",
-    weight_select_xpath = "//*[@name='weight']",
-    height_select_xpath = "//*[@name='height']",
-    age_select_xpath = "//*[@name='age']",
-    leg_select_xpath = "//*[@name='leg']",
-    club_input_xpath = "//*[@name='club']",
-    level_input_xpath = "//*[@name='level']",
-    main_position_input_xpath = "//*[@name='mainPosition']",
-    second_position_input_xpath = "//*[@name='secondPosition']",
-    district_select_xpath = "//*[@id='menu-district']/div[3]//li[5]",
-    district_xpath = "//*[@id='menu-district']",
-    achievements_input_xpath = "//*[@name='achievements']",
-    submit_button_xpath = "//*[@type='submit']"
+    email_input_xpath = '//*[@name="email"]'
+    name_input_xpath = '//*[@name="name"]'
+    surname_input_xpath = '//*[@name="surname"]'
+    phone_input_xpath = '//*[@name="phone"]'
+    weight_select_xpath = '//*[@name="weight"]'
+    height_select_xpath = '//*[@name="height"]'
+    age_select_xpath = '//*[@name="age"]'
+    leg_select_xpath = '//*[@name="leg"]'
+    club_input_xpath = '//*[@name="club"]'
+    level_input_xpath = '//*[@name="level"]'
+    main_position_input_xpath = '//*[@name="mainPosition"]'
+    second_position_input_xpath = '//*[@name="secondPosition"]'
+    district_select_xpath = '//*[@id="menu-district"]/div[3]//li[5]'
+    district_xpath = '//*[@id="mui-component-select-district"]'
+    achievements_input_xpath = '//*[@name="achievements"]'
+    submit_button_xpath = '//*[@type="submit"]'
 
     def type_in_email(self, email):
         self.field_send_keys(self.email_input_xpath, email)
@@ -36,8 +36,9 @@ class AddPlayer(BasePage):
         self.click_on_the_element(self.district_xpath)
         time.sleep(5)
 
-    def select_district(self):
-        self.select_element(self.district_select_xpath)
+    def select_option(self):
+        self.click_on_the_element(self.district_select_xpath)
+        time.sleep(5)
 
     def input_weight(self,  weight):
         self.field_send_keys(self.weight_select_xpath,  weight)
@@ -59,6 +60,9 @@ class AddPlayer(BasePage):
 
     def click_button_submit(self):
         self.click_on_the_element(self.submit_button_xpath)
+
+    def input_main_position(self,  main_position):
+        self.field_send_keys(self.main_position_input_xpath,  main_position)
 
 
 
