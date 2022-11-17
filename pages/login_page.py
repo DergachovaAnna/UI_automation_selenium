@@ -25,5 +25,3 @@ class LoginPage(BasePage):
      def title_of_the_page(self):
           time.sleep(5)
           assert self.get_page_title(self.login_url) == self.expected_title
-
-

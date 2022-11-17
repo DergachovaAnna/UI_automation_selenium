@@ -1,5 +1,4 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import Select
 from selenium.webdriver.remote.webdriver import WebDriver
 
 
@@ -18,6 +17,14 @@ class BasePage():
         self.driver.get(url)
         return self.driver.title
 
-    def select_element(self, selector, selector_type=By.XPATH):
-        select = Select(self.driver.find_element(selector_type, selector))
-        return select
+    def assert_element_text(self, driver, xpath, expected_text):
+        """Comparing expected text with observed value from web element
+
+            :param driver: webdriver instance
+            :param xpath: xpath to element with text to be observed
+            :param expected_text: text what we expecting to be found
+            :return: None
+        """
+        element = driver.find_element(by=By.XPATH, value=xpath)
+        element_text = element.text
+        assert expected_text == element_text

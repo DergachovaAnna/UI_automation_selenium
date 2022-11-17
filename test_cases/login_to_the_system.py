@@ -34,3 +34,6 @@ class TestLoginPage(unittest.TestCase):
         dashboard_page.title_of_the_page()
         time.sleep(5)
 
+    def test_check_by_text(self):
+        user_login = LoginPage(self.driver)
+        user_login.assert_element_text(self.driver, xpath='//*[text()="Scouts Panel"]', expected_text="Scouts Panel")
