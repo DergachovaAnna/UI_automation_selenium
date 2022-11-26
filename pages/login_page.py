@@ -35,7 +35,6 @@ class LoginPage(BasePage):
 
 
      def title_of_the_page(self):
-          self.wait_for_element_to_be_clickable(self.expected_title)
           assert self.get_page_title(self.login_url) == self.expected_title
 
      def assert_element_text(self, driver, xpath, expected_text):
