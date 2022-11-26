@@ -28,10 +28,8 @@ class TestAddPlayer(unittest.TestCase):
         self.login_page.type_in_email("user01@getnada.com")
         self.login_page.type_in_password("Test-1234")
         self.login_page.click_button()
-        time.sleep(5)
         dashboard_page = Dashboard(self.driver)
         dashboard_page.click_button_add_player()
-        time.sleep(3)
         self.add_player.type_in_email("anna_QA123@gmail.com")
         self.add_player.input_name("Harry")
         self.add_player.input_surname("Potter")
@@ -43,21 +41,17 @@ class TestAddPlayer(unittest.TestCase):
         self.add_player.input_phone("0991071113")
         self.add_player.input_level("9")
         self.add_player.click_button()
-        time.sleep(2)
         self.add_player.select_option()
         self.add_player.input_main_position("Wizard")
         self.add_player.click_button_submit()
-        time.sleep(6)
 
     """Check header is correct"""
     def test_title_add_player(self):
         self.login_page.type_in_email("user01@getnada.com")
         self.login_page.type_in_password("Test-1234")
         self.login_page.click_button()
-        time.sleep(2)
         dashboard_page = Dashboard(self.driver)
         dashboard_page.click_button_add_player()
-        time.sleep(2)
         actual_title = self.get_page_title('https://scouts-test.futbolkolektyw.pl/en/players/add')
         expected_title = 'Add player'
         assert actual_title == expected_title
