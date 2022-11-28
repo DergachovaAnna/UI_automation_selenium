@@ -1,6 +1,7 @@
 from pages.base_page import BasePage
-from selenium.webdriver.common.by import By
-import time
+
+
+
 
 
 class LoginPage(BasePage):
@@ -15,6 +16,13 @@ class LoginPage(BasePage):
      language_select_xpath = '//div[contains(@aria-haspopup, "listbox")]'
      select_english_xpath = '//*[@id="menu-"]//li[2]'
      select_polish_xpath = '//*[@id="menu-"]//li[1]'
+     invalid_pass_error_xpath = "//form//div[1]/div[3]/span"
+     remind_password_xpath = "//form//a"
+     remind_pass_input_xpath = "//input[@name='email']"
+     send_button_remind_pass_xpath = "//*/button"
+     remind_pass_confirmation_popup_xpath = "//*[@role='alert']"
+     back_to_sign_in_xpath = "//*/a"
+
 
 
      def type_in_email(self, email):
@@ -25,6 +33,21 @@ class LoginPage(BasePage):
 
      def click_button(self):
           self.click_on_the_element(self.sign_in_button_xpath)
+
+     def login(self, email, password):
+          self.type_in_email(email)
+          self.type_in_password(password)
+          self.click_button()
+
+     def type_in_remind_pass(self, email):
+          self.field_send_keys(self.remind_pass_input_xpath, email)
+
+     def remind_password(self):
+          self.click_on_the_element(self.remind_password_xpath)
+
+     def click_button_send_remind_pass(self):
+         self.click_on_the_element(self.send_button_remind_pass_xpath)
+
 
      def change_language(self, language):
           self.click_on_the_element(self.language_select_xpath)
@@ -37,14 +60,15 @@ class LoginPage(BasePage):
      def title_of_the_page(self):
           assert self.get_page_title(self.login_url) == self.expected_title
 
-     def assert_element_text(self, driver, xpath, expected_text):
-          """Comparing expected text with observed value from web element
 
-              :param driver: webdriver instance
-              :param xpath: xpath to element with text to be observed
-              :param expected_text: text what we expecting to be found
-              :return: None
-          """
-          element = driver.find_element(by=By.XPATH, value=xpath)
-          element_text = element.text
-          assert expected_text == element_text
+     def wait_for_popup(self):
+          self.wait_for_element_to_be_clickable(self.remind_pass_confirmation_popup_xpath)
+
+
+     def click_back_to_sign_in(self):
+          self.click_on_the_element(self.back_to_sign_in_xpath)
+
+
+
+
+
