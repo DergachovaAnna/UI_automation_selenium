@@ -3,6 +3,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from utils.settings import *
+from selenium.webdriver.support.ui import Select
 
 
 class BasePage():
@@ -15,6 +16,9 @@ class BasePage():
 
     def click_on_the_element(self, selector, selector_type=By.XPATH):
         return self.driver.find_element(selector_type, selector).click()
+
+    def find_element_by_xpath(self, selector, selector_type=By.XPATH):
+        return self.driver.find_element(selector_type, selector)
 
     def get_page_title(self, url):
         self.driver.get(url)
@@ -35,5 +39,10 @@ class BasePage():
 
     """Check wait with webdriver"""
     def wait_for_element_to_be_clickable(self, locator, locator_type=DEFAULT_LOCATOR_TYPE):
-        wait = WebDriverWait(self.driver, 10)
+        wait = WebDriverWait(self.driver, 20)
         element = wait.until(EC.element_to_be_clickable((locator_type, locator)))
+
+    def selectItemFromDropDown(self, value, locator, locator_type=By.XPATH):
+            element = self.driver.find_element(locator, locator_type)
+            sel = Select(element)
+            sel.select_by_value(value)

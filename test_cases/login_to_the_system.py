@@ -52,12 +52,10 @@ class TestLoginPage(unittest.TestCase):
 
     def test_change_language_english(self):
         self.login_page.change_language('EN')
-        time.sleep(3)
         self.base_page.assert_element_text(self.driver, self.login_page.sign_in_button_xpath, expected_text="SIGN IN")
 
     def test_change_language_polish(self):
         self.login_page.change_language('PL')
-        time.sleep(3)
         self.base_page.assert_element_text(self.driver, self.login_page.sign_in_button_xpath, expected_text='ZALOGUJ')
 
     @classmethod
