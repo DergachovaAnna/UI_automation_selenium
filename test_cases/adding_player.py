@@ -62,6 +62,7 @@ class TestAddPlayer(unittest.TestCase):
         self.login_page.click_button()
         dashboard_page = Dashboard(self.driver)
         dashboard_page.click_button_add_player()
+        time.sleep(3)
         actual_title = self.get_page_title('https://scouts-test.futbolkolektyw.pl/en/players/add')
         expected_title = 'Add player'
         assert actual_title == expected_title
